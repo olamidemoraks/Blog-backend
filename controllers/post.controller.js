@@ -50,7 +50,7 @@ const getAllPost = async (req, res, next) => {
     const posts = await result.limit(limit).skip(skip);
     const totalPost = await Post.countDocuments();
     let numOfPage;
-    if (!search || !category) {
+    if (!search && !category) {
       numOfPage = Math.ceil(totalPost / limit);
     } else {
       numOfPage = Math.ceil(posts.length / limit);

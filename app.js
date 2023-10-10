@@ -20,7 +20,7 @@ cloudinary.config({
 app.use(express.json({ limit: "50mb" }));
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://blog-mymind.vercel.app"],
+    origin: ["https://blog-mymind.vercel.app", "http://localhost:3000"],
     credentials: true,
   })
 );

@@ -37,8 +37,10 @@ const getAllPost = async (req, res, next) => {
     const { search, category, page } = req.query;
 
     const result = Post.find({
-      title: { $regex: search, $options: "i" },
-      category: category,
+      $or: [
+        {title: { $regex: search, $options: "i" }},
+        {category: category},
+      ]
     }).sort("-createdAt");
 
     const pageNo = Number(page) || 1;
